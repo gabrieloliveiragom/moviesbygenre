@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BestMoviesByGenre</title>
+    <title>MoviesByGenre</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,11 +11,11 @@
   <body>
     <table style="border:none;" align="center">
       <td><img src="<%= asset_path('cinema.png') %>"/ style="height: 125px" /></td>
-      <td><h1>BestMoviesByGenre</h1></td>
+      <td><h1>MoviesByGenre</h1></td>
     </table>
     <%= yield %>
     <h4><i>Developed by <a href="https://github.com/gabrieloliveiragom" target="_blank">Gabriel Oliveira Martins</a>.</i></h4>
-    <p><i>This product uses the TMDb API but is not endorsed or certified by TMDb.</i></p>
+    <p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
     <img src="<%= asset_path('293x302-powered-by-square-green.png') %>"/ style="width:60px">
   </body>
 </html>

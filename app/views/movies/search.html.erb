@@ -28,11 +28,13 @@
 	<table align="center">
 		<tr align="center">
 			<% if @search_result['page'] != 1 %>
+				<td><%= link_to 'First', url_for(genre: @genre, page: 1 ) %></td>
 				<td><%= link_to 'Previous', url_for(genre: @genre, page: @search_result['page'] - 1 ) %></td>
 			<% end %>
 			<td>Page <%= @search_result['page'] %> of <%= @search_result['total_pages'] %></td>
 			<% if @search_result['page'] != @search_result['total_pages'] %>
 				<td><%= link_to 'Next', url_for(genre: @genre, page: @search_result['page'] + 1 ) %></td>
+				<td><%= link_to 'Last', url_for(genre: @genre, page: @search_result['total_pages'] ) %></td>
 			<% end %>
 		</tr>
 	</table>
