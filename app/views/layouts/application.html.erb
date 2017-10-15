@@ -6,16 +6,21 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
   </head>
 
-  <body>
+  <body style="padding:30px">
     <table style="border:none;" align="center">
       <td><img src="<%= asset_path('cinema.png') %>"/ style="height: 125px" /></td>
       <td><h1>MoviesByGenre</h1></td>
     </table>
     <%= yield %>
-    <h4><i>Developed by <a href="https://github.com/gabrieloliveiragom" target="_blank">Gabriel Oliveira Martins</a>.</i></h4>
-    <p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
-    <img src="<%= asset_path('293x302-powered-by-square-green.png') %>"/ style="width:60px">
+    <div style="text-align: right;">
+      <h5><i>Developed by <a href="https://github.com/gabrieloliveiragom" target="_blank">Gabriel Oliveira Martins</a></i></h5>
+      <p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
+      <img src="<%= asset_path('293x302-powered-by-square-green.png') %>"/ style="width:60px">
+    </div>
   </body>
 </html>
