@@ -11,16 +11,24 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
   </head>
 
-  <body style="padding:30px">
-    <table style="border:none;" align="center">
-      <td><img src="<%= asset_path('cinema.png') %>"/ style="height: 125px" /></td>
-      <td><h1>MoviesByGenre</h1></td>
+  <body>
+    <div class="header">
+    <table style="border:none;display:inline-block;">
+      <tr>
+      <td class="align-middle"><img src="<%= asset_path('cinema.png') %>"/ style="height: 125px" /></td>
+      <td class="align-middle"><h1>MoviesByGenre</h1></td>
+      </tr>
     </table>
+    </div>
+    
+    <div class="content">
     <%= yield %>
+    
     <div style="text-align: right;">
       <h5><i>Developed by <a href="https://github.com/gabrieloliveiragom" target="_blank">Gabriel Oliveira Martins</a></i></h5>
       <p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
       <img src="<%= asset_path('293x302-powered-by-square-green.png') %>"/ style="width:60px">
+    </div>
     </div>
   </body>
 </html>
