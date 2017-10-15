@@ -3,6 +3,7 @@
 	<p><i>Total results: <%= @search_result['total_results'] %></i></p>
 	<table border="1">
 		<tr>
+			<th>#</th>
 			<th>Year</th>
 			<th>Poster</th>
 			<th>Title</th>
@@ -10,8 +11,10 @@
 			<th>Genres</th>
 			<th>Plot</th>
 		</tr>
+		<% i = 1 %>
 		<% @movies.each do |movie| %>
 			<tr class=<%= cycle('even', 'odd') %> align="center" font-weight="bold" >
+				<td><%= i + @movies_per_page * (@page - 1) %></td>
 				<td><%= movie['release_date'].split('-')[0] %></td>
 				<td><img src=<%= "https://image.tmdb.org/t/p/w640#{movie['poster_path']}" %> style="height:200px" /></td>
 				<td font-weight="bold"><%= movie['title'] %></td>
@@ -22,18 +25,19 @@
 					<% end %>
 				</td>
 				<td align="justify"><%= movie['overview'] %></td>
+				<% i += 1 %>
 			</tr>
 		<% end %>
 	</table>
 	<table align="center">
 		<tr align="center">
-			<% if @search_result['page'] != 1 %>
+			<% if @page != 1 %>
 				<td><%= link_to 'First', url_for(genre: @genre, page: 1 ) %></td>
-				<td><%= link_to 'Previous', url_for(genre: @genre, page: @search_result['page'] - 1 ) %></td>
+				<td><%= link_to 'Previous', url_for(genre: @genre, page: @page - 1 ) %></td>
 			<% end %>
-			<td>Page <%= @search_result['page'] %> of <%= @search_result['total_pages'] %></td>
-			<% if @search_result['page'] != @search_result['total_pages'] %>
-				<td><%= link_to 'Next', url_for(genre: @genre, page: @search_result['page'] + 1 ) %></td>
+			<td>Page <%= @page %> of <%= @search_result['total_pages'] %></td>
+			<% if @page != @search_result['total_pages'] %>
+				<td><%= link_to 'Next', url_for(genre: @genre, page: @page + 1 ) %></td>
 				<td><%= link_to 'Last', url_for(genre: @genre, page: @search_result['total_pages'] ) %></td>
 			<% end %>
 		</tr>
