@@ -1,7 +1,7 @@
 class Movie
 	include HTTParty
 
-	key_value = "35d2dc2f27ea1b822e51dfa3b27486f6";
+	key_value = ENV['TMDB_KEY']
 	min_votes = 1000
 
 	base_uri "http://api.themoviedb.org"
