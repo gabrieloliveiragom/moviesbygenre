@@ -6,7 +6,8 @@ class MoviesController < ApplicationController
   	#getting the genre and capitalizing each word
   	@genre = params[:genre] || "Drama"
   	@genre = @genre.split.map{ |x| x.capitalize }.join(" ")
-  	@page = params[:page].to_i || 1
+  	@page = params[:page] || 1
+    @page = @page.to_i
   	@genre_id = Genre.getGenreId(@genre)
   	@search_result = Movie.for(@genre_id.to_s, @page)
   	@movies = @search_result["results"]
