@@ -1,0 +1,43 @@
+<% if !@genre_id.nil? && @search_result['page'] <= @search_result['total_pages'] %>
+	<h2>Showing the best <i><%= @genre %></i> movies: </h2>
+	<p><i>Total results: <%= @search_result['total_results'] %></i></p>
+	<table border="1">
+		<tr>
+			<th>Year</th>
+			<th>Poster</th>
+			<th>Title</th>
+			<th>Rating</th>
+			<th>Genres</th>
+			<th>Plot</th>
+		</tr>
+		<% @movies.each do |movie| %>
+			<tr class=<%= cycle('even', 'odd') %> align="center" font-weight="bold" >
+				<td><%= movie['release_date'].split('-')[0] %></td>
+				<td><img src=<%= "https://image.tmdb.org/t/p/w640#{movie['poster_path']}" %> style="height:200px" /></td>
+				<td font-weight="bold"><%= movie['title'] %></td>
+				<td><%= movie['vote_average'] %><br/></td>
+				<td>
+					<% movie['genre_ids'].map{ |id| @id_to_genre[id] }.each do |genre| %>
+						<%= genre %><br/>
+					<% end %>
+				</td>
+				<td align="justify"><%= movie['overview'] %></td>
+			</tr>
+		<% end %>
+	</table>
+	<table align="center">
+		<tr align="center">
+			<% if @search_result['page'] != 1 %>
+				<td><%= link_to 'Previous', url_for(genre: @genre, page: @search_result['page'] - 1 ) %></td>
+			<% end %>
+			<td>Page <%= @search_result['page'] %> of <%= @search_result['total_pages'] %></td>
+			<% if @search_result['page'] != @search_result['total_pages'] %>
+				<td><%= link_to 'Next', url_for(genre: @genre, page: @search_result['page'] + 1 ) %></td>
+			<% end %>
+		</tr>
+	</table>
+<% elsif @genre_id.nil? %>
+	<h2>Sorry, there was no results for the genre <i><%= @genre %></i>. Try again!</h2>
+<% else %>
+	<h2>Sorry, this page doesn't exist. Try again!</h2>
+<% end %>
