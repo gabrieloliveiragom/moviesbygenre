@@ -12,23 +12,31 @@
   </head>
 
   <body>
-    <div class="header">
-    <table style="border:none;display:inline-block;">
-      <tr>
-      <td class="align-middle"><img src="<%= asset_path('cinema.png') %>"/ style="height: 125px" /></td>
-      <td class="align-middle"><h1>MoviesByGenre</h1></td>
-      </tr>
-    </table>
+    <div id="header">
+      <a href="/" target="_self">
+      <table style="border:none;display:inline-block;">
+        <tr>
+          <td class="align-middle"><img src="<%= asset_path('cinema.png') %>"/ style="height: 125px" /></td>
+          <td class="align-middle"><h1>MoviesByGenre</h1></td>
+        </tr>
+      </table>
+      </a>
     </div>
     
-    <div class="content">
-    <%= yield %>
-    
-    <div style="text-align: right;">
-      <h5><i>Developed by <a href="https://github.com/gabrieloliveiragom" target="_blank">Gabriel Oliveira Martins</a></i></h5>
-      <p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
-      <img src="<%= asset_path('293x302-powered-by-square-green.png') %>"/ style="width:60px">
+    <div id="body">
+      <%= yield %>
     </div>
+    
+    <div id="footer">
+      <table class="credits" style="border:none;">
+        <tr>
+          <td><h5><i>Developed by <a href="https://github.com/gabrieloliveiragom" target="_blank">Gabriel Oliveira Martins</a></i></h5></td>
+          <td rowspan="2"><img src="<%= asset_path('293x302-powered-by-square-green.png') %>" style="width:60px" /></td>
+        </tr>
+        <tr>
+          <td><p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p></td>
+        </tr>
+      </table>
     </div>
   </body>
 </html>

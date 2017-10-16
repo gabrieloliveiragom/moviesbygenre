@@ -14,21 +14,65 @@
  *= require_self
  */
 
-.header {
+#header {
 	text-align: center;
 	vertical-align: center;
 	box-shadow: 0px 2px 5px rgba(0,0,0,0.15);
 	height: 140px;
 	background-color: rgb(33,37,41);
-	text-decoration-color: green;
 	color: white;
 }
 
-body {
-	/*padding: 30px;
-	padding-top: 0;*/
+html, body {
+   height:100%;
 }
 
-.content {
+#container {
+   min-height:100%;
+   height:100%;
+   position:relative;
+}
+
+#body {
 	margin: 30px;
+}
+
+#footer {
+	text-align: right;
+	vertical-align: center;
+	box-shadow: 0px 2px 5px rgba(0,0,0,0.15);
+	background-color: rgb(33,37,41);
+	color: white;
+	padding: 20px;
+	height: 100px;
+	position: relative;
+   	bottom:0;
+   	width: 100%;
+}
+
+div#footer h5{
+	font-size: 12pt;
+}
+
+div#footer p{
+	font-size: 8pt;
+}
+
+div#footer td{
+	padding: 0;
+	padding-left: 20px;
+}
+
+div#footer a{
+	color: white;
+}
+
+div#header a{
+	color: white;
+}
+
+table.credits {
+	width: auto;
+    margin-right: 0px;
+    margin-left: auto;
 }

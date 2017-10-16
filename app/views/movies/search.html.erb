@@ -1,4 +1,4 @@
-<% if !@genre_id.nil? && @search_result['page'] <= @search_result['total_pages'] %>
+<% if !@genre_id.nil? && @search_result['page'] <= @search_result['total_pages'] && @search_result["total_results"] != 0 %>
 	<h2>Showing the best <i><%= @genre %></i> movies: </h2>
 	<p><i>Total results: <%= @search_result['total_results'] %></i></p>
 	<table class="table table-striped">
@@ -46,8 +46,13 @@
 			<% end %>
 		</tr>
 	</table>
-<% elsif @genre_id.nil? %>
+<% elsif @genre_id.nil? || @search_result["total_results"] == 0 %>
 	<h2>Sorry, there was no results for the genre <i><%= @genre %></i>. Try again!</h2>
 <% else %>
 	<h2>Sorry, this page doesn't exist. Try again!</h2>
 <% end %>
+<h5>Do you want to search for another genre?</h5>
+<form action="/movies/search" method="get")>
+    <%= select_tag 'genre', options_for_select( @genres) %>
+    <%= submit_tag "Search", :name => nil, class: "btn btn-primary"%>
+</form>

@@ -24,4 +24,10 @@ class Genre
 		return id_to_genre
 	end
 
+	def self.getGenres()
+		@genres_list = self.for()
+		@genres_list.map!{ |g| g["name"] }
+		@genres_list.sort!
+		return @genres_list;
+	end
 end

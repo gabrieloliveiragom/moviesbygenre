@@ -1,2 +1,7 @@
-<h1>Movies#index</h1>
-<p>Find me in app/views/movies/index.html.erb</p>
+<h2>You say the genre, we get you the best movies!</h2>
+<h5>Select the genre of movie you want to search</h5>
+
+<form action="/movies/search" method="get")>
+    <%= select_tag 'genre', options_for_select( @genres) %>
+    <%= submit_tag "Search", :name => nil, class: "btn btn-primary"%>
+</form>
