@@ -19,7 +19,7 @@
 				<tr style="text-align:center;">
 					<td class="align-middle"><%= i + @movies_per_page * (@page - 1) %></td>
 					<td class="align-middle"><%= movie['release_date'].split('-')[0] %></td>
-					<td class="align-middle"><img src=<%= "https://image.tmdb.org/t/p/w640#{movie['poster_path']}" %> style="height:200px" /></td>
+					<td class="align-middle"><img src=<%= "https://image.tmdb.org/t/p/w640#{movie['poster_path']}" %> class="effectscale" /></td>
 					<td class="align-middle" style="font-weight: bold;"><%= movie['title'] %></td>
 					<td class="align-middle"><%= movie['vote_average'] %><br/></td>
 					<td class="align-middle">

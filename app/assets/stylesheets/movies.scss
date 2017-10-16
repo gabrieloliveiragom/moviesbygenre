@@ -13,3 +13,17 @@ table {
 .even {
 	background-color: #D6E1C3;
 }
+
+.effectscale {
+	height:200px;
+}
+
+.effectscale:hover {
+  #-webkit-transform: scale(2);
+  #-moz-transform: scale(2);
+  #-o-transform: scale(2);
+  transform: scale(2);
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  z-index: 1;
+}
