@@ -21,7 +21,13 @@
 					<td class="align-middle"><%= movie['release_date'].split('-')[0] %></td>
 					<td class="align-middle"><img src=<%= "https://image.tmdb.org/t/p/w640#{movie['poster_path']}" %> class="effectscale" /></td>
 					<td class="align-middle" style="font-weight: bold;"><%= movie['title'] %></td>
-					<td class="align-middle"><%= movie['vote_average'] %><br/></td>
+					<td class="align-middle"><%= movie['vote_average'] %>
+						<div style="font-size:0px">
+							<% ((movie['vote_average'] / 2) + 1).to_i.times do %>
+								<img src="<%= asset_path('star2.png') %>" class="star" />
+							<% end %>
+						</div>
+					</td>
 					<td class="align-middle">
 						<% movie['genre_ids'].map{ |id| @id_to_genre[id] }.each do |genre| %>
 							<%= genre %><br/>
@@ -33,7 +39,7 @@
 			<% end %>
 		</tbody>
 	</table>
-	<table align="center">
+	<table class="pages">
 		<tr align="center">
 			<% if @page != 1 %>
 				<td><%= link_to 'First', url_for(genre: @genre, page: 1 ) %></td>

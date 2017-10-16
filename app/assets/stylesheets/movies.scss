@@ -27,3 +27,18 @@ table {
   -webkit-transition: all 0.5s;
   z-index: 1;
 }
+
+table.pages{
+	width: auto;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+img.star{
+	border: 0 none;
+  	display: inline-block;
+  	height: 9px;
+  	margin: 0;
+  	padding: 0;
+  	margin-top: 5px;
+}
