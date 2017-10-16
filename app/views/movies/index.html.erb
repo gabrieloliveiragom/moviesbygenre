@@ -1,5 +1,8 @@
-<h2>You say the genre, we get you the best movies!</h2>
-<h5>Select the genre of movie you want to search</h5>
+<h2>You say the genre, we show you the best movies!</h2>
+
+<img src="<%= asset_path('genres.png') %>" style="height:330px;display:block;margin:auto;" />
+
+<h5>Select the genre of movie you want to search for:</h5>
 
 <form action="/movies/search" method="get")>
     <%= select_tag 'genre', options_for_select( @genres) %>
