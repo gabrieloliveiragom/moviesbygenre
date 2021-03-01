@@ -20,7 +20,12 @@
 					<td class="align-middle"><%= i + @movies_per_page * (@page - 1) %></td>
 					<td class="align-middle"><%= movie['release_date'].split('-')[0] %></td>
 					<td class="align-middle"><img src=<%= "https://image.tmdb.org/t/p/w500#{movie['poster_path']}" %> class="effectscale" /></td>
-					<td class="align-middle" style="font-weight: bold;"><%= movie['title'] %></td>
+					<td class="align-middle">
+						<span style="font-weight: bold;"><%= movie['title'] %></span>
+						<% if movie['title'] != movie['original_title'] %>
+							<br/><span style="font-style: italic;">(<%= movie['original_title'] %>)</span>
+						<% end %>
+					</td>
 					<td class="align-middle"><%= movie['vote_average'] %>
 						<div style="font-size:0px">
 							<% ((movie['vote_average'] / 2) + 1).to_i.times do %>
