@@ -21,7 +21,11 @@
 					<td class="align-middle"><%= movie['release_date'].split('-')[0] %></td>
 					<td class="align-middle"><img src=<%= "https://image.tmdb.org/t/p/w500#{movie['poster_path']}" %> class="effectscale" /></td>
 					<td class="align-middle">
-						<span style="font-weight: bold;"><%= movie['title'] %></span>
+						<span style="font-weight: bold;">
+							<a href=<%= "https://www.themoviedb.org/movie/#{movie['id']}" %> target="_blank" style="color: inherit; text-decoration: none;">
+								<%= movie['title'] %>
+							</a>
+						</span>
 						<% if movie['title'] != movie['original_title'] %>
 							<br/><span style="font-style: italic;">(<%= movie['original_title'] %>)</span>
 						<% end %>
